@@ -1,0 +1,51 @@
+.numeroPokemon {
+  left: 3px;
+  top: 220px;
+  position: absolute;
+  display: inline-block;
+  text-align: end;
+  margin-top: 10px;
+}
+.elementosPokemones {
+  font-size: 0.8rem;
+  justify-content: space-evenly;
+  display: flex;
+  margin: 10px 0px;
+}
+.padrePokemones {
+  position: relative;
+}
+.padrePokemones:hover {
+  box-shadow: 5px 19px 29px 6px rgba(23, 23, 23, 0.89);
+  -webkit-box-shadow: 5px 19px 29px 6px rgba(23, 23, 23, 0.89);
+  -moz-box-shadow: 5px 19px 29px 6px rgba(23, 23, 23, 0.89);
+  transition-duration: 0.2s;
+  transform: scale(1.2, 1.2);
+}
+.imagenPokemon {
+  width: 200px;
+  width: 200px;
+}
+.delete {
+  animation: roll 3s infinite;
+  transform: rotate(30deg);
+  margin: 5px 0 0 5px;
+  align-items: flex-end;
+  display: flex;
+  border: none;
+  background: none;
+  color: black;
+}
+.delete:hover {
+  color: red;
+  transition-duration: 0.2s;
+  transform: scale(1.2, 1.2);
+}
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

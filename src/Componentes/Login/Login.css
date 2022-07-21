@@ -1,0 +1,65 @@
+body {
+  background: url("https://wallpapercave.com/uwp/uwp964924.jpeg");
+  margin: 0%;
+  box-sizing: border-box;
+}
+.papa {
+  row-gap: 40px;
+  height: 80vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+#iputLogin {
+  background: none;
+  padding-left: 10px;
+  margin-top: 8px;
+  border-radius: 9px;
+  border: dashed;
+  width: 400px;
+  height: 35px;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+#btn {
+  background: none;
+  border: none;
+}
+.bienvenidos {
+  animation: text 3s infinite;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+#btn:hover {
+  color: red;
+  transition-duration: 0.5s;
+  transform: scale(1.5, 1.5);
+}
+@keyframes text {
+  0% {
+    color: rgb(0, 0, 0);
+    letter-spacing: 8px;
+  }
+  30% {
+    color: brown;
+    letter-spacing: 25px;
+  }
+  85% {
+    color: rgb(175, 141, 97);
+    letter-spacing: 8px;
+  }
+  95% {
+    color: brown;
+  }
+  100% {
+    color: rgb(0, 0, 0);
+    letter-spacing: 8px;
+  }
+}
