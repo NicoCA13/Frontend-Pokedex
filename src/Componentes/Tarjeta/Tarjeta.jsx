@@ -7,32 +7,38 @@ import { useParams } from "react-router-dom";
 import pokeball from "../../iconos/Pokeball.png";
 import { useEffect, useState } from "react";
 export default function Tarjeta() {
-  const { nombre } = useParams();
+  const { id } = useParams();
+
   const [pokemon, setPokemonSeleccionado] = useState({});
   useEffect(() => {
     const pokemonEncontrado = async () => {
       try {
         const token = localStorage.getItem("token");
-        const respuesta = await fetch(
-          `http://localhost:6789/Pokemons/${nombre}`,
-          {
-            headers: { "auth-token": token },
-          }
-        );
-
+        const respuesta = await fetch(`http://localhost:6789/Pokemons/${id}`, {
+          headers: { "auth-token": token },
+        });
         if (!respuesta.ok) {
           throw new Error("Error en el servidor");
         }
-
         const pokemonesFetch = await respuesta.json();
-
+        pokemon.stats = {
+          atk: pokemon.atk,
+          def: pokemon.def,
+          hp: pokemon.hp,
+          sdef: pokemon.sdef,
+          satk: pokemon.satk,
+          spd: pokemon.spd,
+        };
         setPokemonSeleccionado(pokemonesFetch);
       } catch (error) {
         console.log("No se pudo conectar con el backend");
       }
     };
     pokemonEncontrado();
-  }, [nombre]);
+  }, [id]);
+
+  const next = pokemon.id + 1;
+  const prev = pokemon.id - 1;
 
   const imgPokemon =
     pokemon.nombre &&
@@ -60,19 +66,19 @@ export default function Tarjeta() {
 
           <div className="contenedorDatos">
             <div className="flechas">
-              {pokemon.prev && (
+              {prev && (
                 <Link
                   style={{ textDecoration: "none" }}
-                  to={`/tarjeta/${pokemon.prev}`}
+                  to={`/pokemons/${prev}`}
                 >
                   <button className="botonesDeMover">←</button>
                 </Link>
               )}
-              {pokemon.next && (
+              {next && (
                 <Link
                   className="next"
                   style={{ textDecoration: "none" }}
-                  to={`/tarjeta/${pokemon.next}`}
+                  to={`/pokemons/${next}`}
                 >
                   <button
                     className="botonesDeMover
@@ -110,9 +116,8 @@ export default function Tarjeta() {
                 <h6 className="h6Stats">Height</h6>
               </div>
               <div className="movimientos">
-                <h5>{pokemon.movimiento}</h5>
-                <h5>{pokemon.movimientoSecundario}</h5>
-
+                <h5>{pokemon.movimientos}</h5>
+                <h5>{pokemon.movimientos}</h5>
                 <h6>Moves</h6>
               </div>
             </div>
@@ -138,7 +143,7 @@ export default function Tarjeta() {
                   {pokemon.stats &&
                     Object.entries(pokemon.stats).map(
                       ([nombreDeLaProp, valorDeLaProp]) => (
-                        <li key={valorDeLaProp}>{valorDeLaProp}</li>
+                        <li key={nombreDeLaProp}> {valorDeLaProp}</li>
                       )
                     )}
                 </ul>

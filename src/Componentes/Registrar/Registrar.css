@@ -1,0 +1,5 @@
+#body {
+  background: url("https://i.pinimg.com/originals/7c/67/8b/7c678bffd31dc92dc80d95d471b0e83d.png");
+  display: flex;
+  row-gap: 35px;
+}

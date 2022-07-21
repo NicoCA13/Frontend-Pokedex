@@ -59,6 +59,9 @@ export default function Login() {
           <button id="btn">Continuar sin iniciar</button>
         </Link>
       </div>
+      <Link style={{ textDecoration: "none" }} to={`/registrar`}>
+        <button>Registrar</button>
+      </Link>
     </div>
   );
 }
