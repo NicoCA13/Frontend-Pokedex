@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./CardPokemon.css";
-
-export default function CardPokemon({ pokemon, cargarPokemones }) {
+export default function CardPokemon({ pokemon, cargarPokemones, id }) {
   const imgPokemon = require(`../../iconos/${pokemon.nombre
     .trim()
     .toLowerCase()}.png`);
@@ -12,7 +11,6 @@ export default function CardPokemon({ pokemon, cargarPokemones }) {
       method: "DELETE",
       headers: { "auth-token": token },
     });
-
     await cargarPokemones();
   };
   return (
@@ -34,16 +32,16 @@ export default function CardPokemon({ pokemon, cargarPokemones }) {
           </button>
         )}
         <div className="elementosPokemones">
-          {pokemon.elemento.map((el) => (
-            <div key={el} className={`elemento1 ${el.toLowerCase()}`}>
-              <h4>{el}</h4>
-            </div>
-          ))}
+          {pokemon.elementos.map(
+            (el) =>
+              el && (
+                <div key={el} className={`elemento1 ${el.toLowerCase()}`}>
+                  <h4>{el}</h4>
+                </div>
+              )
+          )}
         </div>
-        <Link
-          style={{ textDecoration: "none" }}
-          to={`/tarjeta/${pokemon.nombre}`}
-        >
+        <Link style={{ textDecoration: "none" }} to={`/pokemons/${pokemon.id}`}>
           <img className="imagenPokemon" src={imgPokemon} alt={imgPokemon} />
         </Link>
         <div className="numeroPokemon" style={{ color: pokemon.color }}>

@@ -13,7 +13,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/registrar" element={<Registrar />}></Route>
           <Route
-            path="Pokemons/:id"
+            path="pokemons/:id"
             element={<Tarjeta pokemones={Pokemones} />}
           ></Route>
         </Routes>

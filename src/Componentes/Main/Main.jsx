@@ -15,10 +15,7 @@ export default function Main() {
 
   const cargarPokemones = async () => {
     try {
-      const token = localStorage.getItem("token");
-      const respuesta = await fetch("http://localhost:6789/Pokemons", {
-        headers: { "auth-token": token },
-      });
+      const respuesta = await fetch("http://localhost:6789/Pokemons", {});
 
       if (!respuesta.ok) {
         throw new Error("Error en el servidor");

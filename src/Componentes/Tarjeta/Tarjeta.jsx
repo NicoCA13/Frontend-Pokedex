@@ -10,25 +10,19 @@ export default function Tarjeta() {
   const { id } = useParams();
 
   const [pokemon, setPokemonSeleccionado] = useState({});
+
   useEffect(() => {
     const pokemonEncontrado = async () => {
       try {
         const token = localStorage.getItem("token");
-        const respuesta = await fetch(`http://localhost:6789/Pokemons/${id}`, {
+        const respuesta = await fetch(`http://localhost:6789/pokemons/${id}`, {
           headers: { "auth-token": token },
         });
         if (!respuesta.ok) {
           throw new Error("Error en el servidor");
         }
         const pokemonesFetch = await respuesta.json();
-        pokemon.stats = {
-          atk: pokemon.atk,
-          def: pokemon.def,
-          hp: pokemon.hp,
-          sdef: pokemon.sdef,
-          satk: pokemon.satk,
-          spd: pokemon.spd,
-        };
+
         setPokemonSeleccionado(pokemonesFetch);
       } catch (error) {
         console.log("No se pudo conectar con el backend");
@@ -37,7 +31,6 @@ export default function Tarjeta() {
     pokemonEncontrado();
   }, [id]);
 
-  const next = pokemon.id + 1;
   const prev = pokemon.id - 1;
 
   const imgPokemon =
@@ -66,7 +59,7 @@ export default function Tarjeta() {
 
           <div className="contenedorDatos">
             <div className="flechas">
-              {prev && (
+              {prev !== 0 && (
                 <Link
                   style={{ textDecoration: "none" }}
                   to={`/pokemons/${prev}`}
@@ -74,11 +67,11 @@ export default function Tarjeta() {
                   <button className="botonesDeMover">←</button>
                 </Link>
               )}
-              {next && (
+              {pokemon.next && (
                 <Link
                   className="next"
                   style={{ textDecoration: "none" }}
-                  to={`/pokemons/${next}`}
+                  to={`/pokemons/${pokemon.next}`}
                 >
                   <button
                     className="botonesDeMover
@@ -90,11 +83,14 @@ export default function Tarjeta() {
               )}
             </div>
             <div className="contenedorElementos">
-              {pokemon.elemento?.map((el) => (
-                <div className={`elemento1 ${el.toLowerCase()}`} key={el}>
-                  <h4 className="elementosh4">{el}</h4>
-                </div>
-              ))}
+              {pokemon.elementos?.map(
+                (el) =>
+                  el && (
+                    <div className={`elemento1 ${el.toLowerCase()}`} key={el}>
+                      <h4 className="elementosh4">{el}</h4>
+                    </div>
+                  )
+              )}
             </div>
             <h4 className="about" style={{ color: pokemon.color }}>
               About
@@ -116,8 +112,8 @@ export default function Tarjeta() {
                 <h6 className="h6Stats">Height</h6>
               </div>
               <div className="movimientos">
-                <h5>{pokemon.movimientos}</h5>
-                <h5>{pokemon.movimientos}</h5>
+                <h5>{pokemon.movimientos?.movimiento1}</h5>
+                <h5>{pokemon.movimientos?.movimiento2}</h5>
                 <h6>Moves</h6>
               </div>
             </div>

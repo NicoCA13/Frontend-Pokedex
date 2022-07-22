@@ -99,6 +99,8 @@
 //       spd: `072`,
 //     },
 //   },
+
+
 //   {
 //     nombre: "Raticate",
 //     numero: `020`,
