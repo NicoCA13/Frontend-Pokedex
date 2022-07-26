@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+#bod {
+  background-color: cadetblue;
+  color: rgb(15, 34, 34);
+  justify-content: flex-start;
+  padding: 20px 20px;
+  border-radius: 25px;
+  margin: 3% 25%;
+  display: flex;
+  align-items: center;
+}
+input {
+  margin: 5px 5px;
+  border-radius: 8px;
+}
+.padre_stats {
+  align-items: center;
+  margin: 10px;
+  gap: 15px;
+  display: flex;
+}
+.stats {
+  display: flex;
+  height: 40px;
+  width: 100px;
+}
+.div_pegado {
+  align-items: center;
+  display: flex;
+}
+.texto {
+  display: flex;
+  height: 40px;
+  width: 300px;
+}
+.descripcion {
+  display: flex;
+  height: 140px;
+  min-width: 620px;
+}
+
+.btn_agg {
+  height: 120px;
+  border-radius: 25px;
+}

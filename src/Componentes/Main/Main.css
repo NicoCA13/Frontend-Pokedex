@@ -16,6 +16,7 @@
     rgba(101, 112, 139, 1) 71%
   );
 }
+
 .titulo-pokedex {
   margin: 15px 0 0 25px;
   font-size: 3.5rem;
@@ -28,9 +29,9 @@
 #button-ordenar {
   border: none;
   background: none;
-  font-size: 2rem;
-  height: 50%;
-  width: 50%;
+  font-size: 2.7rem;
+  position: relative;
+  right: 100px;
 }
 #button-ordenar:hover {
   transition-duration: 0.5s;
@@ -103,13 +104,17 @@
   animation-direction: alternate;
 }
 .log {
-  border-radius: 15px;
-  height: 35px;
-  background-color: cornflowerblue;
+  border-radius: 7px;
+  height: 45px;
+  background-color: #0078d7;
+  width: 130px;
+  border: solid black 3.5px;
+  color: rgb(233, 233, 233);
+  font-size: 1rem;
 }
 .log:hover {
-  color: rgb(199, 28, 28);
-  box-shadow: inset 200px 0 0 0 #050a0c;
+  transition-duration: 0.5s;
+  transform: scale(1.4, 1.4);
 }
 @keyframes shimmy {
   0% {

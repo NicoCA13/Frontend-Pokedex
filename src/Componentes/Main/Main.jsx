@@ -2,10 +2,10 @@ import "./Main.css";
 import React, { useState, useEffect } from "react";
 import pokeball from "../../iconos/Pokeball.png";
 import CardPokemon from "../CardPokemon/CardPokemon";
+import Agregar from "../Agregar/Agregar";
 import PokeballRodante from "../../iconos/Poké_Ball_icon.svg.png";
 import Ash from "../../iconos/ash.png";
 import { Link } from "react-router-dom";
-
 export default function Main() {
   const [listaDePokemones, setListaDePokemones] = useState([]);
   const [pokemonesFiltrado, setPokemonesFiltrado] = useState([]);
@@ -32,7 +32,7 @@ export default function Main() {
 
   const ordenarPorNumero = () => {
     let listaActualizadaPorNumero = [...listaDePokemones].sort(
-      (a, b) => a.numero - b.numero
+      (a, b) => a.nombre - b.nombre
     );
     setPokemonesFiltrado(listaActualizadaPorNumero);
   };
@@ -104,13 +104,18 @@ export default function Main() {
       ) : null}
 
       <div className="lista-pokemones">
+        <div>
+          <Agregar></Agregar>
+        </div>
         {pokemonesFiltrado.map((pokemon) => {
           return (
-            <CardPokemon
-              pokemon={pokemon}
-              key={pokemon.nombre}
-              cargarPokemones={cargarPokemones}
-            />
+            <>
+              <CardPokemon
+                pokemon={pokemon}
+                key={pokemon.nombre}
+                cargarPokemones={cargarPokemones}
+              ></CardPokemon>
+            </>
           );
         })}
       </div>

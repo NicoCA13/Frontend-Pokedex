@@ -23,8 +23,8 @@
   transform: scale(1.2, 1.2);
 }
 .imagenPokemon {
-  width: 200px;
-  width: 200px;
+  width: 220px;
+  width: 220px;
 }
 .delete {
   animation: roll 3s infinite;

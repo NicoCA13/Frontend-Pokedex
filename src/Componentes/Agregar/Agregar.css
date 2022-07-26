@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.img {
+  height: 220px;
+}
+.padre-agregar {
+  position: relative;
+  border: 4px black solid;
+  width: 300px;
+  height: 328px;
+  border-radius: 25px;
+}
+.elemento {
+  justify-content: space-evenly;
+  display: flex;
+  margin: 10px 0px;
+}
+.elementob {
+  border-radius: 15px;
+  width: 100px;
+  padding: 10px;
+  color: white;
+  background-color: black;
+}
+.numero {
+  color: white;
+
+  left: 3px;
+  top: 220px;
+  position: absolute;
+  display: inline-block;
+  text-align: end;
+  margin-top: 10px;
+}
+.nombre {
+  background-color: black;
+  border-radius: 0px 0px 15px 15px;
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+}
+.padre-agregar:hover {
+  box-shadow: 5px 19px 29px 6px rgb(23 23 23 / 89%);
+  -webkit-box-shadow: 5px 19px 29px 6px rgb(23 23 23 / 89%);
+  -moz-box-shadow: 5px 19px 29px 6px rgba(23, 23, 23, 0.89);
+  transition-duration: 0.2s;
+  transform: scale(1.2, 1.2);
+}

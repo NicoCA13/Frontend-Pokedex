@@ -36,6 +36,7 @@ export default function Tarjeta() {
   const imgPokemon =
     pokemon.nombre &&
     require(`../../iconos/${pokemon.nombre?.toLowerCase()}.png`);
+  /// ya no viene de la carpeta iconos, ahora viene del back . asi que busca la query//
   return (
     <div className="body">
       <div className="contenedorTarjeta">

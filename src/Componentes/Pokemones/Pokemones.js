@@ -100,7 +100,6 @@
 //     },
 //   },
 
-
 //   {
 //     nombre: "Raticate",
 //     numero: `020`,

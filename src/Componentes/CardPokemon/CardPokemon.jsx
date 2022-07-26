@@ -1,18 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./CardPokemon.css";
-export default function CardPokemon({ pokemon, cargarPokemones, id }) {
-  const imgPokemon = require(`../../iconos/${pokemon.nombre
-    .trim()
-    .toLowerCase()}.png`);
+export default function CardPokemon({ pokemon, cargarPokemones }) {
   const borrarPokemon = async () => {
-    const token = localStorage.getItem("token");
-    await fetch(`http://localhost:6789/Pokemons/${pokemon.numero}`, {
+    const token = localStorage.setItem("token");
+    await fetch(`http://localhost:6789/Pokemons/${pokemon.id}`, {
       method: "DELETE",
       headers: { "auth-token": token },
     });
     await cargarPokemones();
   };
+
   return (
     <>
       <div
@@ -42,7 +40,11 @@ export default function CardPokemon({ pokemon, cargarPokemones, id }) {
           )}
         </div>
         <Link style={{ textDecoration: "none" }} to={`/pokemons/${pokemon.id}`}>
-          <img className="imagenPokemon" src={imgPokemon} alt={imgPokemon} />
+          <img
+            className="imagenPokemon"
+            src={pokemon.imagen}
+            alt={pokemon.imagen}
+          />
         </Link>
         <div className="numeroPokemon" style={{ color: pokemon.color }}>
           #{pokemon.numero}
