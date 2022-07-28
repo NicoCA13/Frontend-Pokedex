@@ -8,13 +8,6 @@
   overflow: auto;
   height: 100vh;
   text-align: center;
-
-  background: rgb(64, 96, 97);
-  background: linear-gradient(
-    180deg,
-    rgba(64, 96, 97, 1) 29%,
-    rgba(101, 112, 139, 1) 71%
-  );
 }
 
 .titulo-pokedex {
@@ -22,6 +15,7 @@
   font-size: 3.5rem;
   text-align: start;
 }
+
 .pokebalRodante {
   height: 25px;
   width: 25px;

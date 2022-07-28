@@ -52,7 +52,7 @@ export default function Registrar() {
             className="inputRegis"
             onChange={handleEmail}
             type="mail"
-            placeholder="Email"
+            placeholder="Email@gmail.com"
           />
         </div>
         <div className="divDatos">
@@ -62,7 +62,7 @@ export default function Registrar() {
             className="inputRegis"
             onChange={handlePassword}
             type="password"
-            placeholder="Password"
+            placeholder="Exampl3.123"
           />
         </div>
       </form>

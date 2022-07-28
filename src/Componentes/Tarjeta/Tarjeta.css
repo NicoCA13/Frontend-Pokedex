@@ -2,8 +2,6 @@
   padding-bottom: 20px;
   height: 100vh;
   text-align: center;
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/80ff523f-ff84-457d-a547-464588d3a3d3/df4qvkb-f3a7a3ee-a776-47f5-b7fd-d637c1484b33.jpg/v1/fill/w_983,h_813,q_70,strp/river_background_2_by_willdinomaster55_df4qvkb-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTIwMCIsInBhdGgiOiJcL2ZcLzgwZmY1MjNmLWZmODQtNDU3ZC1hNTQ3LTQ2NDU4OGQzYTNkM1wvZGY0cXZrYi1mM2E3YTNlZS1hNzc2LTQ3ZjUtYjdmZC1kNjM3YzE0ODRiMzMuanBnIiwid2lkdGgiOiI8PTE0NTAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.4A1NV1JhE1EtKAuKIzftW-EkHT2-0chlLmx9kZKMa3I");
-  background-size: contain;
 }
 
 .contenedorTarjeta {
@@ -57,6 +55,7 @@
   animation-direction: alternate;
   position: relative;
   width: 350px;
+  max-height: 350px;
   z-index: 2;
 }
 .next {

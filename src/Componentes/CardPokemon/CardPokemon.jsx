@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import "./CardPokemon.css";
 export default function CardPokemon({ pokemon, cargarPokemones }) {
   const borrarPokemon = async () => {
-    const token = localStorage.setItem("token");
+    const token = localStorage.getItem("token");
     await fetch(`http://localhost:6789/Pokemons/${pokemon.id}`, {
       method: "DELETE",
       headers: { "auth-token": token },
     });
     await cargarPokemones();
   };
-
   return (
     <>
       <div
