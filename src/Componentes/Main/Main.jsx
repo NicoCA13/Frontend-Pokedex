@@ -69,7 +69,7 @@ export default function Main() {
   return (
     <div className="padre-div">
       <div className="headerCard">
-        <div>
+        <div className="pokeball-div">
           <img className="pokeball" src={pokeball} alt="logo_pokemon" />
         </div>
         <h1 className="titulo-pokedex">Pokédex</h1>
@@ -115,7 +115,7 @@ export default function Main() {
       ) : (
         <div className="lista-pokemones">
           {localStorage.getItem("token") && (
-            <div>
+            <div className="agregar">
               <Agregar></Agregar>
             </div>
           )}

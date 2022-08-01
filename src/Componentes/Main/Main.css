@@ -11,7 +11,7 @@
 }
 
 .titulo-pokedex {
-  margin: 15px 0 0 25px;
+  margin: 15px 0 0 60px;
   font-size: 3.5rem;
   text-align: start;
 }
@@ -25,7 +25,7 @@
   background: none;
   font-size: 2.7rem;
   position: relative;
-  right: 100px;
+  right: 90px;
 }
 #button-ordenar:hover {
   transition-duration: 0.5s;
@@ -35,7 +35,7 @@
   padding-top: 60px;
   color: #212121;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3.5fr 1fr 0.5fr 2fr 1fr;
   align-items: center;
 }
 .pokeball {
@@ -45,9 +45,13 @@
   animation-timing-function: linear;
   animation-delay: 1s;
   animation-iteration-count: infinite;
-  margin: 15px 0 15px 15px;
+  margin-bottom: 10px;
   width: 45%;
   justify-self: flex-end;
+}
+.pokeball-div {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .input-buscador {
@@ -159,9 +163,26 @@
   }
 }
 @media (max-width: 390px) {
+  .pokeball {
+    margin: 0px 90px 15px 50px;
+  }
+  .log {
+    position: relative;
+    left: 45px;
+    top: 25px;
+  }
+  #button-ordenar {
+    right: 90px;
+    bottom: 30px;
+  }
+
   .titulo-pokedex {
     font-size: 3.2rem;
     margin: 15px 0 15px 0;
+  }
+  .lista-pokemones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .pokemonYSuNombre {
@@ -177,11 +198,6 @@
     display: none;
   }
 
-  .lista-pokemones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .contendorDatosPokemon {
     width: 100%;
     font-size: 0.75rem;

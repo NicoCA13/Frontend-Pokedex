@@ -16,7 +16,6 @@ export default function CardPokemon({ pokemon, cargarPokemones }) {
         className="padrePokemones"
         style={{
           fontWeight: "900",
-          width: "300px",
           border: "solid 4px",
           borderColor: pokemon.color,
           borderRadius: "25px",
@@ -53,9 +52,6 @@ export default function CardPokemon({ pokemon, cargarPokemones }) {
           style={{
             backgroundColor: pokemon.color,
             borderRadius: " 0 0 15px 15px",
-            color: "white",
-            fontSize: "25px",
-            padding: "10px",
           }}
         >
           {pokemon.nombre}

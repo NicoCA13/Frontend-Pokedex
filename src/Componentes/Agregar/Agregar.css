@@ -6,10 +6,11 @@
   height: 220px;
 }
 .padre-agregar {
+  margin-top: 40px;
   position: relative;
   border: 4px black solid;
   width: 300px;
-  height: 328px;
+  height: 322px;
   border-radius: 25px;
 }
 .elemento {
@@ -26,9 +27,8 @@
 }
 .numero {
   color: white;
-
   left: 3px;
-  top: 220px;
+  bottom: 50px;
   position: absolute;
   display: inline-block;
   text-align: end;
@@ -39,7 +39,7 @@
   border-radius: 0px 0px 15px 15px;
   color: white;
   font-size: 25px;
-  padding: 10px;
+  padding: 7px;
 }
 .padre-agregar:hover {
   box-shadow: 5px 19px 29px 6px rgb(23 23 23 / 89%);
@@ -47,4 +47,25 @@
   -moz-box-shadow: 5px 19px 29px 6px rgba(23, 23, 23, 0.89);
   transition-duration: 0.2s;
   transform: scale(1.2, 1.2);
+}
+@media (max-width: 390px) {
+  .img {
+    height: 58px;
+  }
+  .nombre {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  .padre-agregar {
+    width: 150px;
+    height: 160px;
+  }
+  .numero {
+    top: 95px;
+    font-size: 0.6rem;
+  }
+  .elementob {
+    width: 40px;
+    font-size: 0.5rem;
+  }
 }

@@ -1,76 +1,67 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Registrar.css";
-import { Link } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 export default function Registrar() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navegar = useNavigate();
-  const [name, setName] = useState("");
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const verify = async (ev) => {
-    ev.preventDefault();
+  const verify = async (data) => {
     try {
       const res = await fetch("http://localhost:6789/register", {
         method: "POST",
-        body: JSON.stringify({ name, mail, password }),
+        body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
         },
       });
-      const userFetch = await res.json();
-      localStorage.setItem("token", userFetch.token);
       navegar("/login");
     } catch (error) {}
   };
-  const handleName = (ev) => {
-    setName(ev.target.value);
-  };
-  const handleEmail = (ev) => {
-    setMail(ev.target.value);
-  };
-  const handlePassword = (ev) => {
-    setPassword(ev.target.value);
-  };
+
   return (
     <div id="body">
-      <form action="" className="formRegister">
+      <form onSubmit={handleSubmit(verify)} className="formRegister">
         <h1 className="tituloRegister">Sign up</h1>
         <div className="divDatos">
-          <label>Name</label>
+          <label htmlFor="name">Name</label>
           <input
             className="inputRegis"
-            onChange={handleName}
             type="text"
             placeholder="Name"
-          />
+            {...register("name", { required: true, maxLength: 20 })}
+          />{" "}
+          {errors.nombre?.type === "required" && <p>nombre no valido</p>}
         </div>
         <div className="divDatos">
           <label>Email</label>
           <input
             className="inputRegis"
-            onChange={handleEmail}
             type="mail"
             placeholder="Email@gmail.com"
+            {...register("mail", { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })}
           />
+          {errors.mail?.type === "required" && <p>formato incorrecto</p>}
         </div>
         <div className="divDatos">
           <label></label>
           Password
           <input
             className="inputRegis"
-            onChange={handlePassword}
             type="password"
             placeholder="Exampl3.123"
+            {...register("password", { required: true, maxLength: 20 })}
           />
         </div>
-      </form>
-      <Link style={{ textDecoration: "none" }} to={`/login`}>
-        <button onClick={verify} className="butRegister">
+        {errors.password?.type === "required" && <p>formato incorrecto</p>}
+        <button type="submit" className="butRegister">
           Register now
         </button>
-      </Link>
+      </form>
     </div>
   );
 }

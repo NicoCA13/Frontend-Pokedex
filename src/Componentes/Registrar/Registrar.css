@@ -36,3 +36,25 @@
   height: 33px;
   margin-top: 3px;
 }
+
+@media (max-width: 390px) {
+  #body {
+    padding: 0px;
+    margin: 95px 33px;
+  }
+  .formRegister {
+    font-size: 1rem;
+    gap: 16px;
+    /* margin: 95px 33px; */
+  }
+  .tituloRegister {
+    font-size: 1.3rem;
+  }
+  .butRegister {
+    font-size: 0.7rem;
+  }
+  .butRegister:hover {
+    transition-duration: 0.5s;
+    transform: scale(1.1, 1.1);
+  }
+}

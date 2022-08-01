@@ -63,3 +63,54 @@ input {
   transition-duration: 0.5s;
   transform: scale(1.4, 1.4);
 }
+@media (max-width: 390px) {
+  #form-agregar {
+    margin: 10px;
+    position: relative;
+    top: 180px;
+  }
+  .nombre-numero-peso-altura {
+    display: flex;
+    flex-direction: column;
+  }
+  .elementos-movimientos {
+    display: flex;
+    flex-direction: column;
+  }
+  .color-imagen {
+    display: flex;
+    flex-direction: column;
+  }
+  .descripcion {
+    width: 350px;
+    height: 60px;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "hp-atk def-satk"
+      "sdef-spd nada";
+    width: 280px;
+  }
+  .hp-atk {
+    grid-area: hp-atk;
+  }
+  .def-atk {
+    grid-area: def-satk;
+  }
+  .sdef-spd {
+    grid-area: sdef-spd;
+  }
+  .btn_agg {
+    position: relative;
+    bottom: 132px;
+    left: 86px;
+    width: 131px;
+    padding: 51px 0px;
+  }
+  .in-a {
+    height: 35px;
+  }
+}

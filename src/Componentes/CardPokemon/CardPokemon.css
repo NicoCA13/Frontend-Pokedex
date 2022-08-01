@@ -1,19 +1,47 @@
 .numeroPokemon {
-  left: 3px;
-  top: 220px;
+  position: relative;
+  right: 106px;
+  bottom: 10px;
+}
+.imagenPokemon {
+  width: 220px;
+  height: 220px;
+  position: sticky;
+}
+.delete {
   position: absolute;
-  display: inline-block;
-  text-align: end;
-  margin-top: 10px;
+  animation: roll 3s infinite;
+  transform: rotate(30deg);
+  margin: 7px 5px 0 0;
+  align-items: flex-end;
+  display: flex;
+  border: none;
+  background: none;
+  color: black;
+  right: 0;
+}
+.delete:hover {
+  color: red;
+  transition-duration: 0.2s;
+  transform: scale(1.2, 1.2);
 }
 .elementosPokemones {
-  font-size: 0.8rem;
+  font-size: 1rem;
   justify-content: space-evenly;
   display: flex;
-  margin: 10px 0px;
+  position: relative;
+  top: 20px;
 }
 .padrePokemones {
+  margin-top: 40px;
   position: relative;
+  width: 300px;
+  height: 322px;
+}
+.cardBorder {
+  font-size: 25px;
+  padding: 10px;
+  color: white;
 }
 .padrePokemones:hover {
   box-shadow: 5px 19px 29px 6px rgba(23, 23, 23, 0.89);
@@ -22,30 +50,47 @@
   transition-duration: 0.2s;
   transform: scale(1.2, 1.2);
 }
-.imagenPokemon {
-  width: 220px;
-  height: 220px;
-}
-.delete {
-  animation: roll 3s infinite;
-  transform: rotate(30deg);
-  margin: 5px 0 0 5px;
-  align-items: flex-end;
-  display: flex;
-  border: none;
-  background: none;
-  color: black;
-}
-.delete:hover {
-  color: red;
-  transition-duration: 0.2s;
-  transform: scale(1.2, 1.2);
-}
-@keyframes roll {
-  0% {
-    transform: rotate(0);
+
+@media (max-width: 390px) {
+  .padrePokemones {
+    width: 150px;
+    height: 160px;
   }
-  100% {
-    transform: rotate(360deg);
+
+  .imagenPokemon {
+    width: 80px;
+    position: absolute;
+    bottom: 27px;
+    left: 31px;
+    height: 80px;
+  }
+  .delete {
+    margin: 3px 3 0 0;
+    font-size: 0.8rem;
+    padding: 3px 7px;
+    right: 0;
+    z-index: 1;
+  }
+
+  .cardBorder {
+    font-size: 11px;
+    padding: 10px;
+    color: white;
+    position: relative;
+    top: 75px;
+  }
+
+  .elementosPokemones {
+    padding: 6px;
+    height: 20px;
+    margin-top: 21px;
+    font-size: 7px;
+    top: -10px;
+  }
+  .numeroPokemon {
+    position: relative;
+    right: 48px;
+    top: 68px;
+    font-size: 0.5rem;
   }
 }

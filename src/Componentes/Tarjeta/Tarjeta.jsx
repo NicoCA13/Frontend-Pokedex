@@ -66,7 +66,6 @@ export default function Tarjeta() {
                 src={pokemon.imagen}
                 alt={pokemon.imagen}
               />
-
               <div className="contenedorDatos">
                 <div className="flechas">
                   {pokemon.prev && (

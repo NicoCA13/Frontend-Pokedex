@@ -301,6 +301,32 @@ li {
     display: flex;
     margin: 0 5%;
   }
+  .pokemonImagen {
+    width: 180px;
+  }
+
+  .contenedorElementos {
+    font-size: 0.6rem;
+  }
+  .descripcionPokemon {
+    font-size: 0.6rem;
+  }
+
+  .about {
+    font-size: 1rem;
+  }
+  .body {
+    background-size: auto;
+  }
+  .baseStats {
+    font-size: 0.9rem;
+  }
+  .pepe {
+    left: 26%;
+  }
+  .pokeballFondo {
+    width: 73%;
+  }
   .tarjeta {
     width: 100%;
   }
@@ -308,17 +334,10 @@ li {
     gap: 10px;
     margin: 10px;
   }
-
-  .pokemonImagen {
-    width: 250px;
-  }
-  .body {
-    background-size: auto;
-  }
-  .pepe {
-    left: 26%;
-  }
-  .pokeballFondo {
-    width: 73%;
+  .elemento1 {
+    padding: 6px;
+    height: 20px;
+    margin-top: 9px;
+    font-size: 7px;
   }
 }
