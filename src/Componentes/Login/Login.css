@@ -1,6 +1,7 @@
 body {
   background: url("https://wallpapercave.com/uwp/uwp964924.jpeg");
   margin: 0%;
+  background-size: cover;
   box-sizing: border-box;
 }
 .papa {
@@ -21,7 +22,7 @@ body {
   transform: scale(1.2, 1.2);
 }
 
-#iputLogin {
+.iputLogin {
   border-radius: 5px;
   height: 33px;
   margin-top: 3px;
@@ -40,7 +41,7 @@ form {
   flex-direction: column;
   row-gap: 20px;
 }
-#btn {
+.btn {
   margin-top: 19px;
 }
 
@@ -80,7 +81,7 @@ form {
     font-size: 1.4rem;
     margin-bottom: 25px;
   }
-  #btn {
+  .btn {
     font-size: 0.7rem;
   }
   .registrar:hover {

@@ -14,57 +14,36 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+# Empezamos con las rutas del sitio web
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-La URL "http://localhost:3000/" nos lleva al listado original de Pokemones donde se puede ver la imagen, el numero, el/los elementos y el nombre de cada Pokemon.
 
-### `npm run build`
+-Tambien podes ver mas detalles de cada pokemon haciendo click en uno de ellos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-Para elminiar o agregar un Pokemon debes logearte dando click en el boton "iniciar" que te lleva a la URL "http://localhost:3000/login", donde pones el mail y la password con la que te registraste.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-Si no estas registrado lo haces dando click en el boton "Click to Register" que te lleva a la URL "http://localhost:3000/registrar", donde pones tu nombre, mail y password.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Seguimos con las rutas de nuestro backend
 
-### `npm run eject`
+-La ruta principal de nuestro backend es "http://localhost:6789/" (Desde Postman o cualquier aplicacion que permita realizar pruebas API), desde ahi nos vamos a dirigir a las siguientes rutas dependiendo que queramos hacer (GET, POST, PUT, DELETE):
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    -Ver listado de Pokemones:
+        -router.get("/Pokemons", getPokemons);
+        -"http://localhost:6789/pokemons"
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    -Agregar Pokemon al listado original:
+        -router.post("/Pokemons", verifyToken, postPokemons);
+        -"http://localhost:6789/pokemons"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    -Ver un Pokemon especifico:
+        -router.get("/Pokemons/:id",verifyToken, getPokemon);
+        -http://localhost:6789/pokemons/id
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    -Actualizar datos de un Pokemon:
+        -router.put("/Pokemons/:id", verifyToken, putPokemons);
+        -http://localhost:6789/pokemons/id
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    -Eliminar un Pokemon de la lista:
+        -router.delete("/Pokemons/:id", verifyToken, deletePokemons);
+        -http://localhost:6789/pokemons/id

@@ -48,7 +48,7 @@ export default function Login() {
           <div className="inputs">
             <label>Email</label>
             <input
-              id="iputLogin"
+              className="iputLogin"
               onChange={handleEmail}
               type="email"
               placeholder="example@gmail.com"
@@ -57,20 +57,18 @@ export default function Login() {
           <div className="inputs">
             <label>Password</label>
             <input
-              id="iputLogin"
+              className="iputLogin"
               onChange={handlePassword}
               type="password"
               placeholder="Exampl3.123"
             />
           </div>
-          <button id="btn" className="butRegister" onClick={verify}>
+          <button className="btn butRegister" onClick={verify}>
             {" "}
             Log in
           </button>
           <Link style={{ textDecoration: "none" }} to={`/`}>
-            <button id="btn" className="butRegister">
-              Continue without Log in
-            </button>
+            <button className="btn butRegister">Continue without Log in</button>
           </Link>
         </form>
       </div>

@@ -34,30 +34,41 @@ export default function Registrar() {
             type="text"
             placeholder="Name"
             {...register("name", { required: true, maxLength: 20 })}
-          />{" "}
-          {errors.nombre?.type === "required" && <p>nombre no valido</p>}
+          />
+          {errors.name?.type === "required" && (
+            <p className="p-formulario">nombre no valido</p>
+          )}
         </div>
         <div className="divDatos">
-          <label>Email</label>
+          <label htmlFor="mail">Email</label>
           <input
             className="inputRegis"
             type="mail"
             placeholder="Email@gmail.com"
-            {...register("mail", { pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i })}
+            {...register("mail", {
+              required: true,
+              pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+            })}
           />
-          {errors.mail?.type === "required" && <p>formato incorrecto</p>}
+          {errors.mail?.type === "required" && (
+            <p className="p-formulario">formato incorrecto</p>
+          )}
+          {errors.mail?.type === "pattern" && (
+            <p className="p-formulario">formato incorrecto</p>
+          )}
         </div>
         <div className="divDatos">
-          <label></label>
-          Password
+          <label htmlFor="password">Password</label>
           <input
             className="inputRegis"
             type="password"
-            placeholder="Exampl3.123"
+            placeholder="Exampl3123"
             {...register("password", { required: true, maxLength: 20 })}
           />
+          {errors.password?.type === "required" && (
+            <p className="p-formulario">formato incorrecto</p>
+          )}
         </div>
-        {errors.password?.type === "required" && <p>formato incorrecto</p>}
         <button type="submit" className="butRegister">
           Register now
         </button>

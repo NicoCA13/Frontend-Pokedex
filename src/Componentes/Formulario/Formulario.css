@@ -34,16 +34,29 @@ input {
 .em,
 .cm,
 .hp-atk,
-.def-satk,
-.sdef-spd {
+.def-satk {
   flex-direction: column;
   display: flex;
+}
+.sdef-spd {
+  display: flex;
+  flex-direction: column;
+}
+.sDefens,
+.sSpeed {
+  display: flex;
+  flex-direction: column;
 }
 .textarea {
   margin-top: 5px;
   padding: 5px;
   border: 2px solid black;
   border-radius: 8px;
+}
+.p-formulario {
+  margin: 1px 0 5px 0;
+  font-size: 0.5rem;
+  color: rgb(255, 0, 0);
 }
 
 .in-a {
@@ -65,9 +78,9 @@ input {
 }
 @media (max-width: 390px) {
   #form-agregar {
-    margin: 10px;
-    position: relative;
-    top: 180px;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    height: auto;
   }
   .nombre-numero-peso-altura {
     display: flex;
@@ -83,17 +96,19 @@ input {
   }
   .descripcion {
     width: 350px;
-    height: 60px;
+    height: 150px;
   }
   .stats {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "hp-atk def-satk"
-      "sdef-spd nada";
+      "sdef-spd sdef-spd";
     width: 280px;
+    height: 250px;
   }
+
   .hp-atk {
     grid-area: hp-atk;
   }
@@ -101,14 +116,24 @@ input {
     grid-area: def-satk;
   }
   .sdef-spd {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
     grid-area: sdef-spd;
   }
+  .sDefens {
+    display: flex;
+    flex-direction: column;
+  }
+  .sSpeed {
+    display: flex;
+    flex-direction: column;
+  }
+
   .btn_agg {
-    position: relative;
-    bottom: 132px;
-    left: 86px;
-    width: 131px;
-    padding: 51px 0px;
+    margin-bottom: 25px;
+    font-size: 0.4rem;
+    padding: 5px 5px;
   }
   .in-a {
     height: 35px;

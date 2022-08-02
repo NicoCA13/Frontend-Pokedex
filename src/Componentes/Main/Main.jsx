@@ -68,11 +68,25 @@ export default function Main() {
 
   return (
     <div className="padre-div">
+      {/* <button
+        className="divbutonlink"
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          })
+        }
+      >
+        ↑
+      </button> */}
       <div className="headerCard">
         <div className="pokeball-div">
           <img className="pokeball" src={pokeball} alt="logo_pokemon" />
         </div>
-        <h1 className="titulo-pokedex">Pokédex</h1>
+        <h1 className="titulo-pokedex" id="a">
+          Pokédex
+        </h1>
         <div className="colaboradores">
           <h4> De: Pablito and Nico</h4>
         </div>
@@ -98,18 +112,12 @@ export default function Main() {
       <div className="input">
         <input
           onChange={buscarNombre}
-          className="input-buscador"
+          id="input-buscador"
           type="text"
           placeholder=" 🔎  Search Pokémon.."
         />
       </div>
 
-      {pokemonesFiltrado == false ? (
-        <div className="pokemonNoEncontrado">
-          <img className="ash" src={Ash} alt={Ash} />
-          <h1>Pokémon no encontrado :C.....</h1>{" "}
-        </div>
-      ) : null}
       {loading ? (
         <ClipLoader loading={loading} cssOverride={override} size={150} />
       ) : (
@@ -119,6 +127,12 @@ export default function Main() {
               <Agregar></Agregar>
             </div>
           )}
+          {pokemonesFiltrado == false ? (
+            <div className="pokemonNoEncontrado">
+              <img className="ash" src={Ash} alt={Ash} />
+              <h1>Pokémon no encontrado </h1>{" "}
+            </div>
+          ) : null}
           {pokemonesFiltrado.map((pokemon) => {
             return (
               <>

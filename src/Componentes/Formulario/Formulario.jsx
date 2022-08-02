@@ -2,6 +2,7 @@ import React from "react";
 import "./Formulario.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { valoresStats, valorNumero } from "./validator";
 export default function Formulario() {
   const {
     register,
@@ -37,15 +38,29 @@ export default function Formulario() {
               placeholder="*"
               {...register("nombre", { required: true, maxLength: 20 })}
             />
-            {errors.nombre?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.nombre?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
+            {errors.nombre?.type === "maxLength" && (
+              <p className="p-formulario">Nombre entre 2 y 20 caracteres</p>
+            )}
             <label htmlFor="Numero">Numero</label>
             <input
               className="in-a "
               type="text"
               placeholder="*"
-              {...register("numero", { required: true, maxLength: 4 })}
+              {...register(
+                "numero",
+                { validate: valorNumero },
+                { required: true, maxLength: 4 }
+              )}
             />
-            {errors.numero?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.numero?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
+            {errors.numero && (
+              <p className="p-formulario">El dato debe ser entre 1 y 905</p>
+            )}
           </div>
           <div className="nnpa">
             <label htmlFor="peso ">Peso </label>
@@ -53,17 +68,29 @@ export default function Formulario() {
               className="in-a "
               type="double"
               placeholder="*"
-              {...register("peso", { required: true, maxLength: 4 })}
+              {...register("peso", { min: 0.1, required: true, maxLength: 4 })}
             />
-            {errors.peso?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.peso?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
+            {errors.peso?.type === "min" && (
+              <p className="p-formulario">El peso debe ser mayor a 0</p>
+            )}
             <label htmlFor="Altura ">Altura </label>
             <input
               className="in-a "
               type="double"
               placeholder="*"
-              {...register("altura", { required: true, maxLength: 4 })}
+              {...register("altura", {
+                required: true,
+                maxLength: 4,
+                min: 0.1,
+              })}
             />
             {errors.altura?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.altura?.type === "min" && (
+              <p className="p-formulario">La altura debe ser mayor a 0</p>
+            )}
           </div>
         </div>
         <div className="elementos-movimientos">
@@ -78,7 +105,9 @@ export default function Formulario() {
                 maxLength: 20,
               })}
             />
-            {errors.elemento1?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.elemento1?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
             <label htmlFor="elemento2 ">Elemento secundario </label>
             <input
               className="in-a "
@@ -99,7 +128,7 @@ export default function Formulario() {
               })}
             />
             {errors.movimiento1?.type === "required" && (
-              <p>Campo obligatorio</p>
+              <p className="p-formulario">Campo obligatorio</p>
             )}
             <label htmlFor="movimiento2 ">Movimiento secundario </label>
             <input
@@ -116,20 +145,24 @@ export default function Formulario() {
             <input
               className="in-a "
               type="text"
-              placeholder="*"
+              placeholder="Ejemplo:#000000  *"
               {...register("color", { required: true, maxLength: 7 })}
             />{" "}
-            {errors.color?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.color?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio </p>
+            )}
           </div>
           <div className="cm">
             <label htmlFor="Imagen">Imagen</label>
             <input
               className="in-a "
               type="url"
-              placeholder="https://example.com *"
+              placeholder="https://example.png *"
               {...register("imagen", { required: true })}
             />
-            {errors.imagen?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.imagen?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
           </div>
         </div>
 
@@ -139,9 +172,11 @@ export default function Formulario() {
             className="textarea"
             placeholder="*"
             id="descripcion-input"
-            {...register("descripcion", { required: true })}
+            {...register("descripcion", { required: true, minLength: 1 })}
           />
-          {errors.descripcion?.type === "required" && <p>Campo obligatorio</p>}
+          {errors.descripcion?.type === "required" && (
+            <p className="p-formulario">Campo obligatorio</p>
+          )}
         </div>
         <div className="stats">
           <div className="hp-atk">
@@ -150,17 +185,35 @@ export default function Formulario() {
               className="in-stats"
               type="number"
               placeholder="*"
-              {...register("hp", { required: true, maxLength: 3 })}
+              {...register(
+                "hp",
+                { validate: valoresStats },
+                { required: true, maxLength: 3 }
+              )}
             />
-            {errors.hp?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.hp?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
+            {errors.hp && (
+              <p className="p-formulario">El dato debe ser entre 1 y 250</p>
+            )}
             <label htmlFor="atk">ATK</label>
             <input
               className="in-stats"
               type="number"
               placeholder="*"
-              {...register("atk", { required: true, maxLength: 3 })}
+              {...register(
+                "atk",
+                { validate: valoresStats },
+                { required: true, maxLength: 3 }
+              )}
             />
-            {errors.atk?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.atk?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
+            {errors.atk && (
+              <p className="p-formulario">El dato debe ser entre 1 y 250</p>
+            )}
           </div>
 
           <div className="def-satk">
@@ -169,35 +222,75 @@ export default function Formulario() {
               className="in-stats"
               type="number"
               placeholder="*"
-              {...register("def", { required: true, maxLength: 3 })}
+              {...register(
+                "def",
+                { validate: valoresStats },
+                { required: true, maxLength: 3 }
+              )}
             />
-            {errors.def?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.def?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
+            {errors.def && (
+              <p className="p-formulario">El dato debe ser entre 1 y 250</p>
+            )}
             <label htmlFor="satk">SATK</label>
             <input
               className="in-stats"
               type="number"
               placeholder="*"
-              {...register("satk", { required: true, maxLength: 3 })}
+              {...register(
+                "satk",
+                { validate: valoresStats },
+                { required: true, maxLength: 3 }
+              )}
             />
-            {errors.satk?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.satk?.type === "required" && (
+              <p className="p-formulario">Campo obligatorio</p>
+            )}
+            {errors.satk && (
+              <p className="p-formulario">El dato debe ser entre 1 y 250</p>
+            )}
           </div>
           <div className="sdef-spd">
-            <label htmlFor="sdef">SDEF</label>
-            <input
-              className="in-stats"
-              type="number"
-              placeholder="*"
-              {...register("sdef", { required: true, maxLength: 3 })}
-            />
-            {errors.sdef?.type === "required" && <p>Campo obligatorio</p>}
-            <label htmlFor="spd">SPD</label>
-            <input
-              className="in-stats"
-              type="number"
-              placeholder="*"
-              {...register("spd", { required: true, maxLength: 3 })}
-            />
-            {errors.spd?.type === "required" && <p>Campo obligatorio</p>}
+            <div className="sDefens">
+              <label htmlFor="sdef">SDEF</label>
+              <input
+                className="in-stats"
+                type="number"
+                placeholder="*"
+                {...register(
+                  "sdef",
+                  { validate: valoresStats },
+                  { required: true, maxLength: 3 }
+                )}
+              />
+              {errors.sdef?.type === "required" && (
+                <p className="p-formulario">Campo obligatorio</p>
+              )}
+              {errors.sdef && (
+                <p className="p-formulario">El dato debe ser entre 1 y 250</p>
+              )}
+            </div>
+            <div className="sSpeed">
+              <label htmlFor="spd">SPD</label>
+              <input
+                className="in-stats"
+                type="number"
+                placeholder="*"
+                {...register(
+                  "spd",
+                  { validate: valoresStats },
+                  { required: true }
+                )}
+              />
+              {errors.spd?.type === "required" && (
+                <p className="p-formulario">Campo obligatorio</p>
+              )}
+              {errors.spd && (
+                <p className="p-formulario">El dato debe ser entre 1 y 250</p>
+              )}
+            </div>
           </div>
         </div>
         <button type="submit" to={`/`} className="btn_agg">
