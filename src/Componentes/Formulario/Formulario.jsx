@@ -27,7 +27,11 @@ export default function Formulario() {
 
   return (
     <div id="bod">
-      <form onSubmit={handleSubmit(insertarPokemon)} id="form-agregar">
+      <form
+        onSubmit={handleSubmit(insertarPokemon)}
+        id="form-agregar"
+        data-testid="form-agregar"
+      >
         <div className="nombre-numero-peso-altura">
           <div className="nnpa">
             <label htmlFor="Nombre">Nombre</label>
@@ -35,17 +39,29 @@ export default function Formulario() {
               className="in-a "
               type="text"
               placeholder="*"
+              data-testid="name-field"
               {...register("nombre", { required: true, maxLength: 20 })}
             />
-            {errors.nombre?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.nombre?.type === "required" && (
+              <p data-testid="nombre-required">Campo obligatorio</p>
+            )}
+            {errors.nombre?.type === "maxLength" && (
+              <p data-testid="nombre-max-length">Maximo de 20 caracteres</p>
+            )}
             <label htmlFor="Numero">Numero</label>
             <input
               className="in-a "
               type="text"
               placeholder="*"
+              data-testid="number-field"
               {...register("numero", { required: true, maxLength: 4 })}
             />
-            {errors.numero?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.numero?.type === "required" && (
+              <p data-testid="number-required">Campo obligatorio</p>
+            )}
+            {errors.numero?.type === "maxLength" && (
+              <p data-testid="number-max-length">Maximo de 4 caracteres</p>
+            )}
           </div>
           <div className="nnpa">
             <label htmlFor="peso ">Peso </label>
@@ -53,17 +69,29 @@ export default function Formulario() {
               className="in-a "
               type="double"
               placeholder="*"
+              data-testid="weight-field"
               {...register("peso", { required: true, maxLength: 4 })}
             />
-            {errors.peso?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.peso?.type === "required" && (
+              <p data-testid="weight-required">Campo obligatorio</p>
+            )}
+            {errors.peso?.type === "maxLength" && (
+              <p data-testid="weight-max-length">Maximo de 4 caracteres</p>
+            )}
             <label htmlFor="Altura ">Altura </label>
             <input
               className="in-a "
               type="double"
               placeholder="*"
+              data-testid="height-field"
               {...register("altura", { required: true, maxLength: 4 })}
             />
-            {errors.altura?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.altura?.type === "required" && (
+              <p data-testid="height-required">Campo obligatorio</p>
+            )}
+            {errors.altura?.type === "maxLength" && (
+              <p data-testid="height-max-length">Maximo de 4 caracteres</p>
+            )}
           </div>
         </div>
         <div className="elementos-movimientos">
@@ -73,12 +101,18 @@ export default function Formulario() {
               className="in-a "
               type="text"
               placeholder="*"
+              data-testid="elemento1-field"
               {...register("elemento1", {
                 required: true,
                 maxLength: 20,
               })}
             />
-            {errors.elemento1?.type === "required" && <p>Campo obligatorio</p>}
+            {errors.elemento1?.type === "required" && (
+              <p data-testid="elemento1-required">Campo obligatorio</p>
+            )}
+            {errors.elemento1?.type === "maxLength" && (
+              <p data-testid="elemento1-max-length">Maximo de 20 caracteres</p>
+            )}
             <label htmlFor="elemento2 ">Elemento secundario </label>
             <input
               className="in-a "
@@ -200,7 +234,12 @@ export default function Formulario() {
             {errors.spd?.type === "required" && <p>Campo obligatorio</p>}
           </div>
         </div>
-        <button type="submit" to={`/`} className="btn_agg">
+        <button
+          type="submit"
+          to={`/`}
+          className="btn_agg"
+          data-testid="submit-button"
+        >
           Agregar
         </button>
       </form>
