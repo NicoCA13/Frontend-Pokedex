@@ -68,18 +68,10 @@ export default function Main() {
 
   return (
     <div className="padre-div">
-      {/* <button
-        className="divbutonlink"
-        onClick={() =>
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-          })
-        }
-      >
+      <div id="top"></div>
+      <a className="divbutonlink butonlink" href="#top">
         ↑
-      </button> */}
+      </a>
       <div className="headerCard">
         <div className="pokeball-div">
           <img className="pokeball" src={pokeball} alt="logo_pokemon" />

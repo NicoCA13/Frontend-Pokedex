@@ -138,7 +138,9 @@ h6 {
 .fire {
   background-color: #f57d31;
 }
-
+.hada {
+  background-color: #fdb9e9;
+}
 .water {
   background-color: #6493eb;
 }
@@ -165,6 +167,9 @@ h6 {
 }
 .normal {
   background-color: #aaa67f;
+}
+.dragon {
+  background-color: coral;
 }
 .psychic {
   background-color: #fb5584;

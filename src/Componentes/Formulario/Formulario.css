@@ -1,3 +1,9 @@
+#bod {
+  background: url("https://wallpapercave.com/uwp/uwp964924.jpeg");
+  margin: 0%;
+  background-size: cover;
+  box-sizing: border-box;
+}
 #form-agregar {
   height: 100vh;
   justify-content: center;
